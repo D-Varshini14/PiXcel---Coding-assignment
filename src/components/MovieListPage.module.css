@@ -1,0 +1,205 @@
+.page {
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.headerInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+.logoText {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+}
+
+/* ── Search ── */
+.searchWrap {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.searchInput {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 9px 36px 9px 38px;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: rgba(232, 184, 75, 0.4);
+  background: var(--surface2);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: color 0.2s;
+}
+.clearBtn:hover { color: var(--text-primary); }
+
+/* ── Main ── */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.headingRow {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.heading {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.heading em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.count {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .main { padding: 24px 16px 60px; }
+  .headerInner { padding: 0 16px; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ── Skeleton ── */
+.skeleton {
+  aspect-ratio: 2/3;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  background-image: linear-gradient(
+    90deg,
+    var(--surface) 0px,
+    rgba(255,255,255,0.04) 200px,
+    var(--surface) 400px
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ── States ── */
+.error {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--text-secondary);
+}
+
+.retryBtn {
+  margin-top: 16px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.retryBtn:hover { background: var(--surface); }
+
+.empty {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
